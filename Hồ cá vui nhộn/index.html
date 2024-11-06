@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquarium Animation</title>
+    <style>
+        body {
+            background-color: #87CEEB;
+            overflow: hidden;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .aquarium {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(to top, #1E90FF, #87CEEB);
+        }
+        .character {
+            position: absolute;
+            width: 100px;
+            transition: transform 0.5s linear;
+        }
+        .shark, .turtle {
+            width: 150px;
+        }
+        .seaweed {
+            position: absolute;
+            bottom: 0;
+            width: 50px;
+            height: 200px;
+            background-color: #228B22;
+            border-radius: 20px;
+            animation: sway 3s infinite ease-in-out;
+        }
+        @keyframes sway {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+        }
+        .play-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #FFD700;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="aquarium">
+     
+        <img src="diver1.png" class="character diver" id="diver1" style="top: 20%; left: 0;">
+        <img src="diver2.png" class="character diver" id="diver2" style="top: 30%; left: 0;">
+        <img src="diver3.png" class="character diver" id="diver3" style="top: 40%; left: 0;">
+        
+        <img src="shark.png" class="character shark" id="shark" style="top: 50%; left: 0;">
+        
+        <img src="turtle.png" class="character turtle" id="turtle" style="top: 70%; left: 0;">
+        
+        <img src="goldFishSchool.png" class="character small-fish" id="smallFish1" style="top: 80%; left: 0;">
+        <img src="faintSchool.png" class="character small-fish" id="smallFish2" style="top: 90%; left: 0;">
+
+        <!-- Thêm rong rêu -->
+        <div class="seaweed" style="left: 10%;"></div>
+        <div class="seaweed" style="left: 30%;"></div>
+        <div class="seaweed" style="left: 50%;"></div>
+        <div class="seaweed" style="left: 70%;"></div>
+        <div class="seaweed" style="left: 90%;"></div>
+
+        <button class="play-button" onclick="playMusic()">Phát nhạc</button>
+    </div>
+
+    <audio id="background-music" src="https://zingmp3.vn/bai-hat/Hoa-Bang-Lang-Sao-Truc-Nhac-Ko-Loi/IW807EAD.html"></audio>
+
+    <script>
+
+        function playMusic() {
+            const music = document.getElementById('background-music');
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+
+        const characters = [
+            { id: 'diver1', speed: Math.random() * 2 + 1 },
+            { id: 'diver2', speed: Math.random() * 2 + 1 },
+            { id: 'diver3', speed: Math.random() * 2 + 1 },
+            { id: 'shark', speed: Math.random() * 2 + 1 },
+            { id: 'turtle', speed: Math.random() * 2 + 1 },
+            { id: 'smallFish1', speed: Math.random() * 2 + 1 },
+            { id: 'smallFish2', speed: Math.random() * 2 + 1 }
+        ];
+
+        function updatePositions() {
+            characters.forEach(character => {
+                const element = document.getElementById(character.id);
+                let left = parseFloat(element.style.left || 0);
+                let top = parseFloat(element.style.top || 0);
+
+                left += character.speed;
+                top += Math.sin(left * 0.05) * 5; // Thêm hiệu ứng di chuyển lên xuống
+
+                if (left >= window.innerWidth - element.width || left <= 0) {
+                    character.speed *= -1;
+                    element.style.transform = `scaleX(${Math.sign(character.speed)})`;
+                }
+
+                element.style.left = left + 'px';
+                element.style.top = top + 'px';
+            });
+            requestAnimationFrame(updatePositions);
+        }
+        updatePositions();
+    </script>
+</body>
+</html>
