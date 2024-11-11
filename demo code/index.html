@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML DOM API Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff;
+            transition: background-color 0.3s ease;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .description {
+            font-size: 1.2em;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .content {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .item {
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        .item:hover {
+            background-color: #d1ecf1;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HTML DOM API Demo</h1>
+    <p class="description">Đây là bản demo giới thiệu cách sử dụng <code>document.querySelector</code> và <code>querySelectorAll</code>.</p>
+ 
+    <div class="button-container">
+        <button class="button" id="change-color-btn">Change Background Color</button>
+        <button class="button" id="highlight-btn">Highlight Items</button>
+    </div>
+
+    <div class="content">
+        <div class="item" id="item1">Item 1</div>
+        <div class="item" id="item2">Item 2</div>
+        <div class="item" id="item3">Item 3</div>
+        <div class="item" id="item4">Item 4</div>
+    </div>
+
+    <script>
+        const changeColorBtn = document.querySelector('#change-color-btn');
+        const highlightBtn = document.querySelector('#highlight-btn');
+        const items = document.querySelectorAll('.item');
+
+        let clickCount = 0;
+
+        function changeBackgroundColor() {
+            clickCount++;
+            if (clickCount === 1) {
+                document.body.style.backgroundColor = '#1E90FF';
+            } else if (clickCount === 2) {
+                document.body.style.backgroundColor = '#FF6347';
+            } else {
+                document.body.style.backgroundColor = '#fff';
+                clickCount = 0;
+            }
+        }
+
+        function toggleHighlight() {
+            items.forEach(item => {
+                item.classList.toggle('highlight');
+            });
+        }
+
+        changeColorBtn.addEventListener('click', changeBackgroundColor);
+        highlightBtn.addEventListener('click', toggleHighlight);
+
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                if (item.id === 'item1') {
+                    document.body.style.fontFamily = 'Courier New, Courier, monospace';
+                } else if (item.id === 'item2') {
+                    document.body.style.fontSize = '20px';
+                } else if (item.id === 'item3') {
+                    document.body.style.fontSize = '14px';
+                } else if (item.id === 'item4') {
+                    document.body.style.color = 'green';
+                }
+            });
+        });
+
+        const pageTitle = document.querySelector('h1');
+        pageTitle.addEventListener('mouseover', () => {
+            pageTitle.style.color = '#007BFF';
+        });
+        pageTitle.addEventListener('mouseout', () => {
+            pageTitle.style.color = '#333';
+        });
+    </script>
+
+</body>
+</html>
