@@ -12,13 +12,13 @@
     <button onclick="checkout()">Thanh toán</button>
 
     <script>
-        // Giỏ hàng lấy từ localStorage
+  
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-        // Hiển thị sản phẩm trong giỏ hàng
+   
         function displayCart() {
             const cartItems = document.getElementById('cart-items');
-            cartItems.innerHTML = ''; // Xóa nội dung cũ
+            cartItems.innerHTML = ''; 
             if (cart.length === 0) {
                 cartItems.innerHTML = "<p>Giỏ hàng của bạn đang trống.</p>";
                 return;
@@ -34,21 +34,20 @@
             });
         }
 
-        // Xóa sản phẩm khỏi giỏ hàng
         function removeFromCart(index) {
             cart.splice(index, 1);
-            localStorage.setItem('cart', JSON.stringify(cart)); // Lưu lại giỏ hàng
-            displayCart(); // Cập nhật giỏ hàng
+            localStorage.setItem('cart', JSON.stringify(cart)); 
+            displayCart(); 
         }
 
-        // Hiển thị giỏ hàng khi trang được tải
+        
         displayCart();
 
-        // Thanh toán (chỉ là ví dụ)
+  
         function checkout() {
             alert('Đang tiến hành thanh toán!');
-            localStorage.removeItem('cart'); // Xóa giỏ hàng sau khi thanh toán
-            displayCart(); // Cập nhật giỏ hàng sau khi thanh toán
+            localStorage.removeItem('cart'); 
+            displayCart(); 
         }
     </script>
 </body>

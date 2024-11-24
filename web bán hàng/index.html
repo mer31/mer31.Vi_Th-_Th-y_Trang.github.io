@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <header>
         <style>
-            /* Thanh giỏ hàng giống Shopee */
+         
             .cart-icon {
                 position: fixed;
                 top: 20px;
@@ -36,7 +36,7 @@
                 right: -5px;
             }
     
-            /* Phần sản phẩm */
+         
             .product {
                 display: inline-block;
                 width: 200px;
@@ -79,7 +79,7 @@
             <a href="gh.html">
                 <img src="cart-icon.png" alt="Giỏ hàng" style="width: 50px; height: 50px;">
             </a>
-         <!-- Số lượng sản phẩm trong giỏ hàng -->
+       
          <div id="cart-badge" class="cart-badge" style="display: none;">0</div>
         </div>
     </header>
@@ -168,10 +168,9 @@
         <p>&copy; 2024 Mer Store. All rights reserved.</p>
     </footer>
     <script>
-  // Lấy giỏ hàng từ localStorage hoặc khởi tạo nếu chưa có
+  
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-// Cập nhật số lượng sản phẩm trong giỏ hàng
 function updateCartBadge() {
     const cartBadge = document.getElementById('cart-badge');
     let totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
@@ -183,7 +182,6 @@ function updateCartBadge() {
     }
 }
 
-// Thêm sản phẩm vào giỏ hàng
 function addToCart(id, name, price) {
     const productInCart = cart.find(item => item.id === id);
     if (productInCart) {
@@ -195,69 +193,7 @@ function addToCart(id, name, price) {
     updateCartBadge();
 }
 
-// Cập nhật badge khi trang được tải
 updateCartBadge();
 </script>
-</body>
-</html>
-2. Mã cho Trang gh.html - Trang Giỏ Hàng
-html
-Sao chép mã
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Giỏ Hàng - Mer Store</title>
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-<h2>Giỏ Hàng</h2>
-<div id="cart-items"></div>
-<button onclick="checkout()">Thanh toán</button>
-
-<script>
-// Lấy giỏ hàng từ localStorage
-let gh = JSON.parse(localStorage.getItem('cart')) || [];
-
-// Hiển thị sản phẩm trong giỏ hàng
-function displayCart() {
-    const cartItems = document.getElementById('cart-items');
-    cartItems.innerHTML = '';
-    if (cart.length === 0) {
-        cartItems.innerHTML = "<p>Giỏ hàng của bạn đang trống.</p>";
-        return;
-    }
-
-    cart.forEach((product, index) => {
-        const productDiv = document.createElement('div');
-        productDiv.classList.add('cart-item');
-        productDiv.innerHTML = `
-            <p>${product.name} - ${product.price} - Số lượng: ${product.quantity}</p>
-            <button onclick="removeFromCart(${index})">Xóa</button>
-        `;
-        cartItems.appendChild(productDiv);
-    });
-}
-
-// Xóa sản phẩm khỏi giỏ hàng
-function removeFromCart(index) {
-    cart.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    displayCart();
-}
-
-// Thanh toán (chỉ là ví dụ)
-function checkout() {
-    alert('Đang tiến hành thanh toán!');
-    localStorage.removeItem('cart');
-    displayCart();
-}
-
-// Hiển thị giỏ hàng khi trang được tải
-displayCart();
-</script>
-
 </body>
 </html>
