@@ -1,0 +1,308 @@
+/* Đặt màu chủ đạo và font */
+:root {
+    --primary-color: #2ecc71; /* Xanh lá chủ đạo */
+    --secondary-color: #27ae60; /* Xanh lá đậm hơn */
+    --light-color: #f4f9f4; /* Nền xanh nhạt */
+    --text-color: #333; /* Màu chữ */
+    --font-family: 'Arial', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    color: var(--text-color);
+    background-color: var(--light-color);
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img {
+    height: 50px;
+    width: auto;
+}
+
+header .menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+header .menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+header .menu li a:hover {
+    color: var(--secondary-color);
+}
+
+/* Đặt thanh tìm kiếm */
+header .search-bar {
+    display: flex;
+    gap: 10px;
+}
+
+header .search-bar input[type="text"] {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    font-size: 14px;
+}
+
+header .search-bar button {
+    padding: 8px 15px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+header .search-bar button:hover {
+    background-color: #2ecc71;
+}
+
+/* Các sản phẩm nổi bật */
+.featured {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+.featured h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.featured .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.featured .product {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.featured .product img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.featured .product h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.featured .product p {
+    font-size: 1.2em;
+    color: var(--secondary-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+.logo-container {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.logo {
+    margin-right: 5px; /* Điều chỉnh khoảng cách giữa logo và chữ "Mer" */
+}
+
+.store-name {
+    margin: 0; 
+    color: #008080
+
+}
+.featured {
+    margin-top: 30px; /* Thêm khoảng cách phía trên */
+}
+
+.featured h2 {
+    font-size: 28px; /* Kích thước chữ tiêu đề */
+    font-weight: bold;
+    text-align: center; /* Căn giữa tiêu đề */
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+}
+
+.product-grid {
+    display: grid; /* Sử dụng grid để tạo cấu trúc cho các sản phẩm */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Tạo các cột cho sản phẩm */
+    gap: 20px; /* Khoảng cách giữa các sản phẩm */
+}
+
+.product {
+    text-align: center; /* Căn giữa chữ trong sản phẩm */
+}
+
+.product img {
+    max-width: 100%; /* Đảm bảo hình ảnh không vượt quá kích thước container */
+}
+
+/* Phần form đăng nhập */
+.auth-form {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.auth-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-align: left;
+    width: 100%;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.auth-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.auth-form button:hover {
+    background-color: #45a049;
+}
+
+.auth-form p {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.auth-form a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.auth-form a:hover {
+    text-decoration: underline;
+}
+/* Phần form đăng ký */
+.auth-form {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.auth-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-align: left;
+    width: 100%;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.auth-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.auth-form button:hover {
+    background-color: #45a049;
+}
+.featured {
+    margin-top: 30px; /* Thêm khoảng cách phía trên */
+}
+
+.featured h2 {
+    font-size: 28px; /* Kích thước chữ tiêu đề */
+    font-weight: bold;
+    text-align: center; /* Căn giữa tiêu đề */
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+}
+
+.product-grid {
+    display: grid; /* Sử dụng grid để tạo cấu trúc cho các sản phẩm */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Tạo các cột cho sản phẩm */
+    gap: 20px; /* Khoảng cách giữa các sản phẩm */
+}
+
+.product {
+    text-align: center; /* Căn giữa chữ trong sản phẩm */
+}
+
+.product img {
+    max-width: 100%; /* Đảm bảo hình ảnh không vượt quá kích thước container */
+}
+

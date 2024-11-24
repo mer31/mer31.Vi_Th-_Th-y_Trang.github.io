@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Sản phẩm - Mer Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* Thanh giỏ hàng giống Shopee */
+    .cart-icon {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .cart-icon img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .cart-badge {
+        background-color: #ff424e;
+        color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        text-align: center;
+        line-height: 20px;
+        position: absolute;
+        top: -5px;
+        right: -5px;
+    }
+
+    /* Phần sản phẩm */
+    .product {
+        display: inline-block;
+        width: 200px;
+        margin: 15px;
+        text-align: center;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .product img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .add-to-cart-btn {
+        background-color: #ff424e;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    .add-to-cart-btn:hover {
+        background-color: #e63e44;
+    }
+</style>
+</head>
+<body>
+<header>
+<div class="logo-container">
+    <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+        <img src="logu.png" alt="Mer Store Logo" class="logo" style="height: 50px; margin-right: 5px;">
+        <h1 class="store-name" style="margin: 0;">er</h1>
+    </a>
+</div>
+<div class="cart-icon">
+    <a href="gh.html">
+        <img src="cart-icon.png" alt="Giỏ hàng" style="width: 50px; height: 50px;">
+    </a>
+ <!-- Số lượng sản phẩm trong giỏ hàng -->
+ <div id="cart-badge" class="cart-badge" style="display: none;">0</div>
+</div>
+</header>
+</script>    
+  
+</style>
+</header>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sản phẩm - Mer Store</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    
+    <ul class="menu">
+        <li><a href="about.html">Giới thiệu</a></li>
+    <li><a href="ct.html">Sản phẩm</a></li>
+    <li><a href="contact.html">Liên hệ</a></li>
+    <li><a href="feedback.html">Góp ý</a></li>
+    </ul>
+    <div class="search-bar">
+        <form action="search.html" method="get">
+            <input type="text" name="query" placeholder="Tìm kiếm...">
+            <button type="submit">Tìm kiếm</button>
+        </form>
+        <a href="dk.html" style="color:white; text-decoration:none;">Đăng ký</a> | 
+        <a href="auth.html" style="color:white; text-decoration:none;">Đăng nhập</a>
+    </div>
+    
+</div>
+</header>
+<section class="featured">
+<div class="container">
+    <h2>Các sản phẩm nổi bật</h2>
+    <div class="product-grid">
+        <div class="product">
+            <img src="product1.png" alt="Sản phẩm 1">
+            <p>bút chì Thiên Long</p>
+            <p>Giá: 3.000 VND</p>
+            <button onclick="addToCart(1, 'bút chì Thiên Long', 3000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+            <img src="product2.png" alt="Sản phẩm 2">
+            <p>Thước dẻo PVC Điểm 10 SR-022</p>
+            <p>Giá: 2.500 VND</p>
+            <button onclick="addToCart(2, 'Thước dẻo PVC Điểm 10 SR-022', 2500)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+            <img src="product3.png" alt="Sản phẩm 3">
+            <p>Gôm tẩy xóa chì Thiên Long E-011</p>
+            <p>Giá: 4.000 VND</p>
+            <button onclick="addToCart(3, 'Gôm tẩy xóa chì Thiên Long E-011', 4000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+            <img src="product4.png" alt="Sản phẩm 4">
+            <p>Bút xóa kéo Plus mini 505</p>
+            <p>Giá: 10.000 VND</p>
+            <button onclick="addToCart(4, 'Bút xóa kéo Plus mini 505', 10000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+            <img src="product5.png" alt="Sản phẩm 5">
+            <p>sổ note nhỏ</p>
+            <p>Giá: 8.000 VND</p>
+            <button onclick="addToCart(5, 'sổ note nhỏ', 8000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+            <img src="product6.png" alt="Sản phẩm 6">
+            <p>bút dạ quang</p>
+            <p>Giá: 8.000 VND</p>
+            <button onclick="addToCart(6, 'bút dạ quang', 8000)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+            <img src="product7.png" alt="Sản phẩm 7">
+            <p>kéo mini cute</p>
+            <p>Giá: 8.000 VND</p>
+            <button onclick="addToCart(7, 'kéo mini cute', 8000)">Thêm vào giỏ</button>
+        </div>
+                <div class="product">
+                    <img src="product8.png" alt="Sản phẩm 8">
+                    <p>kéo mini cute</p>
+                    <p>Giá: 6.000 VND</p>
+                    <button onclick="addToCart(8, 'kéo mini cute', 6000)">Thêm vào giỏ</button>
+                </div>
+                <div class="product">
+                    <img src="product9.png" alt="Sản phẩm 9">
+                    <p>sticker cuộn</p>
+                    <p>Giá: 9.000 VND</p>
+                    <button onclick="addToCart(9, 'sticker cuộn', 9000)">Thêm vào giỏ</button>
+                </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mer Store. All rights reserved.</p>
+    </footer>
+    <script>
+        // Lấy giỏ hàng từ localStorage hoặc khởi tạo nếu chưa có
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      
+      // Cập nhật số lượng sản phẩm trong giỏ hàng
+      function updateCartBadge() {
+          const cartBadge = document.getElementById('cart-badge');
+          let totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+          if (totalItems > 0) {
+              cartBadge.style.display = 'block';
+              cartBadge.textContent = totalItems;
+          } else {
+              cartBadge.style.display = 'none';
+          }
+      }
+      
+      // Thêm sản phẩm vào giỏ hàng
+      function addToCart(id, name, price) {
+          const productInCart = cart.find(item => item.id === id);
+          if (productInCart) {
+              productInCart.quantity += 1;
+          } else {
+              cart.push({ id, name, price, quantity: 1 });
+          }
+          localStorage.setItem('cart', JSON.stringify(cart));
+          updateCartBadge();
+      }
+      
+      // Cập nhật badge khi trang được tải
+      updateCartBadge();
+      </script>
+      </body>
+      </html>
+      2. Mã cho Trang gh.html - Trang Giỏ Hàng
+      html
+      Sao chép mã
+      <!DOCTYPE html>
+      <html lang="vi">
+      <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Giỏ Hàng - Mer Store</title>
+      <link rel="stylesheet" href="styles.css">
+      </head>
+      <body>
+      
+      <h2>Giỏ Hàng</h2>
+      <div id="cart-items"></div>
+      <button onclick="checkout()">Thanh toán</button>
+      
+      <script>
+      // Lấy giỏ hàng từ localStorage
+      let gh = JSON.parse(localStorage.getItem('cart')) || [];
+      
+      // Hiển thị sản phẩm trong giỏ hàng
+      function displayCart() {
+          const cartItems = document.getElementById('cart-items');
+          cartItems.innerHTML = '';
+          if (cart.length === 0) {
+              cartItems.innerHTML = "<p>Giỏ hàng của bạn đang trống.</p>";
+              return;
+          }
+      
+          cart.forEach((product, index) => {
+              const productDiv = document.createElement('div');
+              productDiv.classList.add('cart-item');
+              productDiv.innerHTML = `
+                  <p>${product.name} - ${product.price} - Số lượng: ${product.quantity}</p>
+                  <button onclick="removeFromCart(${index})">Xóa</button>
+              `;
+              cartItems.appendChild(productDiv);
+          });
+      }
+      
+      // Xóa sản phẩm khỏi giỏ hàng
+      function removeFromCart(index) {
+          cart.splice(index, 1);
+          localStorage.setItem('cart', JSON.stringify(cart));
+          displayCart();
+      }
+      
+      // Thanh toán (chỉ là ví dụ)
+      function checkout() {
+          alert('Đang tiến hành thanh toán!');
+          localStorage.removeItem('cart');
+          displayCart();
+      }
+      
+      // Hiển thị giỏ hàng khi trang được tải
+      displayCart();
+      </script>
+      
+      </body>
+      </html>
